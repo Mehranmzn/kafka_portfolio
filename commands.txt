@@ -1,0 +1,18 @@
+#first zookeper:
+cd kafka_2.13-2.7.0/
+bin/zookeeper-server-start.sh config/zookeeper.properties
+
+#After zookeeper, we need to run the server
+bin/kafka-server-start.sh config/server.properties
+
+#also note that we have change the listern ip address int he server
+sudo nano config/server.properties, and then change ADVERTISED_LISTENERS to public ip of the EC2 instance
+
+#after zookeper and kafka server is running we need to create a topic
+bin/kafka-topics.sh --create --topic demostockmarket --bootstrap-server {ip}:9092 --replication-factor 1 --partitions 1
+
+
+# after runinng the zoekeeper and kafka server we need to run the consumer and producer
+
+bin/kafka-console-producer.sh --topic demostockmarket --bootstrap-server {ip}:9092 
+bin/kafka-console-consumer.sh --topic demostockmarket --bootstrap-server {ip}:9092 
