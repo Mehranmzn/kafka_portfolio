@@ -1,3 +1,18 @@
 .DS_Store
 **/.DS_Store
 /key_ec2
+.terraform/
+
+# .tfstate files
+*.tfstate
+*.tfstate.*
+.terraform/
+**.tfstate*
+.prettierrc
+
+# Crash log files
+crash.log*
+
+# Terraform variable files
+*.tfvars
+*.tfvars.json
